@@ -13,6 +13,10 @@ func GetResponseAsByte(url string) []byte {
 		log.Fatalln(err)
 	}
 
+	if !checkSuccessfulHttpStatusCode(res) {
+		log.Fatalf("GetResponseAsByte - Status code of %d not within 2XX range\n", res.StatusCode)
+	}
+
 	return ResponseToJsonAsByte(res)
 }
 
@@ -24,4 +28,11 @@ func ResponseToJsonAsByte(res *http.Response) []byte {
 	}
 
 	return []byte(body)
+}
+
+func checkSuccessfulHttpStatusCode(res *http.Response) bool {
+	if res.StatusCode >= 200 && res.StatusCode <= 299 {
+		return true
+	}
+	return false
 }
