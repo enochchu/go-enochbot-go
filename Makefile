@@ -1,5 +1,7 @@
 all: test build
 
+format: sourceformat staticcheck
+
 build:
 	go build -o bin/main main.go
 
@@ -13,6 +15,9 @@ compile:
 
 run:
 	go run main.go
+
+sourceformat:
+	go fmt ./...
 
 # Credit: go-jira's makefile
 staticcheck: ## Runs static analysis to prevend bugs, foster code simplicity, performance and editor integration.
