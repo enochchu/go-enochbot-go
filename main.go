@@ -15,8 +15,7 @@ type TestPerson struct {
 
 func main() {
 	var person TestPerson
-	var url string
-	url = "https://swapi.dev/api/people/1"
+	var url string = "https://swapi.dev/api/people/1"
 
 	data := utils.GetResponseAsByte(url)
 

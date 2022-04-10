@@ -14,8 +14,7 @@ type TestPerson struct {
 }
 
 func TestGetResponseAsByte(t *testing.T) {
-	var url string
-	url = "https://swapi.dev/api/people/1"
+	var url string = "https://swapi.dev/api/people/1"
 
 	res := GetResponseAsByte(url)
 
@@ -26,9 +25,7 @@ func TestGetResponseAsByte(t *testing.T) {
 
 func TestResponseToJsonAsByte(t *testing.T) {
 	var person TestPerson
-	var url string
-
-	url = "https://swapi.dev/api/people/1"
+	var url string = "https://swapi.dev/api/people/1"
 
 	res, _ := http.Get(url)
 
