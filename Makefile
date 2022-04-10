@@ -17,7 +17,7 @@ run:
 # Credit: go-jira's makefile
 staticcheck: ## Runs static analysis to prevend bugs, foster code simplicity, performance and editor integration.
 	go install honnef.co/go/tools/cmd/staticcheck@2022.1
-	staticcheck ./...
+	staticcheck ./... > staticcheck.log
 
 test:
 	go test ./...
